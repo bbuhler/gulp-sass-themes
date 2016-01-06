@@ -1,0 +1,30 @@
+{
+  "name": "gulp-sass-themes",
+  "version": "1.0.0",
+  "description": "Compile SASS files with different themes (variables) files.",
+  "main": "sass-themes.js",
+  "dependencies": {
+    "through2": "^2.0.0",
+    "vinyl": "^1.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leafymind/gulp-sass-themes.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "gulp",
+    "theme",
+    "themes",
+    "multiple",
+    "variables"
+  ],
+  "author": "Benjamin Buhler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leafymind/gulp-sass-themes/issues"
+  },
+  "homepage": "https://github.com/leafymind/gulp-sass-themes#readme"
+}
