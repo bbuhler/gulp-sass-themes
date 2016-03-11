@@ -1,32 +1,34 @@
-var path = require('path');
-var through2 = require('through2');
-var File = require('vinyl');
+const path = require('path');
+const through2 = require('through2');
 
-module.exports= function(themesPath, themeNames)
+module.exports = function(themesPath, themeNames)
 {
   'use strict';
+
+  var placeholder = '.themed.';
+  var themeImports = {};
+
+  themeNames.forEach(function(themeName)
+  {
+    themeImports[themeName] = new Buffer('@import "' + path.join(themesPath, themeName) + '";\n\n');
+  });
 
   return through2.obj(function(file, enc, next)
   {
     var files = this;
     var filename = path.basename(file.path);
-    var placeholder = '.themed.';
-
-    //FIXME: #1 do only for changed files
+    var dirname = path.dirname(file.path);
 
     if(filename.indexOf(placeholder) > 0)
     {
-      var base = path.dirname(file.path);
-      var content = file.contents.toString('utf8');
-
       themeNames.forEach(function(themeName)
       {
-        files.push(new File
-        ({
-          base: file.base,
-          path: path.join(base, filename.replace(placeholder, '.' + themeName + '.')),
-          contents: new Buffer('@import "' + path.join(themesPath, themeName) + '";\n\n' + content)
-        }));
+        let themedFile = file.clone();
+
+        themedFile.contents = Buffer.concat([themeImports[themeName], themedFile.contents]);
+        themedFile.path = path.join(dirname, filename.replace(placeholder, '.' + themeName + '.'));
+
+        files.push(themedFile);
       });
     }
     else

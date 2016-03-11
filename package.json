@@ -1,11 +1,10 @@
 {
   "name": "gulp-sass-themes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Compile SASS files with different themes (variables) files.",
   "main": "sass-themes.js",
   "dependencies": {
-    "through2": "^2.0.0",
-    "vinyl": "^1.1.0"
+    "through2": "^2.0.0"
   },
   "devDependencies": {},
   "repository": {
