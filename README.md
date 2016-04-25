@@ -23,16 +23,15 @@ Gulpfile
 ```javascript
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sassThemes = require('gulp-sass-themes');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const sassThemes = require('gulp-sass-themes');
 
-gulp.task('styles', function () {
-  return gulp.src('./styles/**/*.scss')
-    .pipe(sassThemes('./styles/themes', ['red','blue']))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/styles'));
-});
+gulp.task('styles', () => gulp.src('./styles/**/*.scss')
+  .pipe(sassThemes('./styles/themes', ['red','blue']))
+  .pipe(sass()).on('error', sass.logError)
+  .pipe(gulp.dest('./dist/styles'));
+);
 ```
 
 Output
