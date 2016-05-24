@@ -4,6 +4,7 @@
   "description": "Compile SASS files with different theme (variables) files.",
   "main": "sass-themes.js",
   "dependencies": {
+    "slash": "^1.0.0",
     "through2": "^2.0.0"
   },
   "devDependencies": {},

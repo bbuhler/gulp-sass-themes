@@ -1,5 +1,6 @@
 const path = require('path');
 const through2 = require('through2');
+const slash = require('slash');
 
 module.exports = function(themesPath, themeNames)
 {
@@ -10,7 +11,7 @@ module.exports = function(themesPath, themeNames)
 
   themeNames.forEach(function(themeName)
   {
-    themeImports[themeName] = new Buffer(`$current-theme-name: "${themeName}"; @import "${path.join(themesPath, themeName)}"; `);
+    themeImports[themeName] = new Buffer(`$current-theme-name: "${themeName}"; @import "${slash(path.join(themesPath, themeName))}"; `);
   });
 
   return through2.obj(function(file, enc, next)
