@@ -6,23 +6,23 @@ module.exports = function(themesPath, themeNames)
 {
   'use strict';
 
-  var placeholder = '.themed.';
-  var themeImports = {};
+  let placeholder = '.themed.';
+  let themeImports = {};
 
-  themeNames.forEach(function(themeName)
+  themeNames.forEach( themeName =>
   {
     themeImports[themeName] = new Buffer(`$current-theme-name: "${themeName}"; @import "${slash(path.join(themesPath, themeName))}"; `);
   });
 
   return through2.obj(function(file, enc, next)
   {
-    var files = this;
-    var filename = path.basename(file.path);
-    var dirname = path.dirname(file.path);
+    let files = this;
+    let filename = path.basename(file.path);
+    let dirname = path.dirname(file.path);
 
-    if(filename.indexOf(placeholder) > 0)
+    if(filename.includes(placeholder))
     {
-      themeNames.forEach(function(themeName)
+      themeNames.forEach( themeName =>
       {
         let themedFile = file.clone();
 

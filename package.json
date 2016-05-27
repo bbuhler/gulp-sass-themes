@@ -7,10 +7,22 @@
     "slash": "^1.0.0",
     "through2": "^2.0.0"
   },
-  "devDependencies": {},
+  "peerDependencies": {
+    "gulp": "3.x",
+    "gulp-sass": "2.x"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "Benjamin Buhler",
+  "license": "MIT",
+  "homepage": "https://github.com/bbuhler/gulp-sass-themes#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bbuhler/gulp-sass-themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bbuhler/gulp-sass-themes/issues",
   },
   "keywords": [
     "sass",
@@ -20,11 +32,5 @@
     "themes",
     "multiple",
     "variables"
-  ],
-  "author": "Benjamin Buhler",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bbuhler/gulp-sass-themes/issues"
-  },
-  "homepage": "https://github.com/bbuhler/gulp-sass-themes#readme"
+  ]
 }

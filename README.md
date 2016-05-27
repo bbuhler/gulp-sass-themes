@@ -30,7 +30,7 @@ const sassThemes = require('gulp-sass-themes');
 gulp.task('styles', () => gulp.src('./styles/**/*.scss')
   .pipe(sassThemes('./styles/themes', ['red','blue']))
   .pipe(sass()).on('error', sass.logError)
-  .pipe(gulp.dest('./dist/styles'));
+  .pipe(gulp.dest('./dist/styles'))
 );
 ```
 
