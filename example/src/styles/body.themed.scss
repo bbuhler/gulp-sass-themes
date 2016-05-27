@@ -1,0 +1,13 @@
+$bg-color: white !default;
+$font-color: black !default;
+
+body
+{
+  background-color: $bg-color;
+  color: $font-color;
+
+  @if $current-theme-name == "red"
+  {
+    font-weight: bold;
+  }
+}
