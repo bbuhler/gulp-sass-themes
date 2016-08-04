@@ -11,7 +11,7 @@ module.exports = function(themesPath, themeNames)
   let themeImports = {};
 
   if (!themeNames.constructor !== Array) {
-	var themeNames = globby.sync(themeNames);
+	themeNames = globby.sync(themeNames);
   }
 
   themeNames.forEach( themeName =>
