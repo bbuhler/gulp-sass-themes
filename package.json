@@ -5,7 +5,8 @@
   "main": "sass-themes.js",
   "dependencies": {
     "slash": "^1.0.0",
-    "through2": "^2.0.0"
+    "through2": "^2.0.0",
+    "globby": "^6.0.0" 
   },
   "peerDependencies": {
     "gulp": "3.x",
