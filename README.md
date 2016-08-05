@@ -34,6 +34,11 @@ gulp.task('styles', () => gulp.src('./styles/**/*.scss')
 );
 ```
 
+Alternatively you can provide a glob for to find all the themes
+```javascript
+  .pipe(sassThemes('styles/themes/*.scss'))
+```
+
 Output
 ```
 ├── dist

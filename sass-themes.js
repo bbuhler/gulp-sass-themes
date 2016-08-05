@@ -1,6 +1,7 @@
 const path = require('path');
 const through2 = require('through2');
 const slash = require('slash');
+const globby = require('globby');
 
 module.exports = function(themesPath, themeNames)
 {
@@ -8,6 +9,10 @@ module.exports = function(themesPath, themeNames)
 
   let placeholder = '.themed.';
   let themeImports = {};
+
+  if (!themeNames.constructor !== Array) {
+	themeNames = globby.sync(themeNames);
+  }
 
   themeNames.forEach( themeName =>
   {
