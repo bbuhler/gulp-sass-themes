@@ -28,7 +28,7 @@ const sass = require('gulp-sass');
 const sassThemes = require('gulp-sass-themes');
 
 gulp.task('styles', () => gulp.src('./styles/**/*.scss')
-  .pipe(sassThemes('./src/styles/themes/_*.scss'))
+  .pipe(sassThemes('./styles/themes/_*.scss'))
   .pipe(sass()).on('error', sass.logError)
   .pipe(gulp.dest('./dist/styles'))
 );
