@@ -46,15 +46,19 @@ Output
 
 ### themes
 Type: `String | Array<String>`
+
 Glob pattern to theme files.
 
 ### options
 
 #### cwd
 Type: `String`
+
 Current working directory for glob pattern.
 
 #### placeholder
 Type: `RegExp`
+
 Regular expression to match and replace placeholder in file. The first parentheses-captured matched result will be replaced with the theme name.
+
 Default is `/^.+\.(themed)\.(scss|sass)$/`.
