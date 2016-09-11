@@ -5,7 +5,7 @@ const sass = require('gulp-sass');
 const sassThemes = require('../sass-themes');
 
 gulp.task('styles', () => gulp.src('./src/styles/**/*.scss')
-  .pipe(sassThemes('./src/styles/themes', ['red','blue']))
+  .pipe(sassThemes('themes/_*.scss', { cwd: './src/styles' }))
   .pipe(sass()).on('error', sass.logError)
   .pipe(gulp.dest('./dist/styles'))
 );

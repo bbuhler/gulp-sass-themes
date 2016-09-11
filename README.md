@@ -1,6 +1,6 @@
 # gulp-sass-themes
 
-A plugin for [Gulp](https://github.com/gulpjs/gulp) as extention of [gulp-sass](https://github.com/dlmanning/gulp-sass).
+A plugin for [Gulp](https://github.com/gulpjs/gulp) as extension of [gulp-sass](https://github.com/dlmanning/gulp-sass).
 
 ## Install
 
@@ -28,15 +28,10 @@ const sass = require('gulp-sass');
 const sassThemes = require('gulp-sass-themes');
 
 gulp.task('styles', () => gulp.src('./styles/**/*.scss')
-  .pipe(sassThemes('./styles/themes', ['red','blue']))
+  .pipe(sassThemes('./src/styles/themes/_*.scss'))
   .pipe(sass()).on('error', sass.logError)
   .pipe(gulp.dest('./dist/styles'))
 );
-```
-
-Alternatively you can provide a glob for to find all the themes
-```javascript
-  .pipe(sassThemes('styles/themes/*.scss'))
 ```
 
 Output
@@ -47,10 +42,19 @@ Output
         └── body.blue.css
 ```
 
-## Options
+## Parameters
 
-### themePath
+### themes
+Type: `String | Array<String>`
+Glob pattern to theme files.
+
+### options
+
+#### cwd
 Type: `String`
+Current working directory for glob pattern.
 
-### themeNames
-Type: `Array` of `Strings`
+#### placeholder
+Type: `RegExp`
+Regular expression to match and replace placeholder in file. The first parentheses-captured matched result will be replaced with the theme name.
+Default is `/^.+\.(themed)\.(scss|sass)$/`.
