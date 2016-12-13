@@ -6,7 +6,8 @@ const globby = require('globby');
 const defaultOptions = {
   placeholder: /^.+\.(themed)\.(scss|sass)$/,
   cwd: process.cwd(),
-  ext: '.scss'
+  ext: '.scss',
+  createdir: false
 };
 
 /**
@@ -17,6 +18,7 @@ const defaultOptions = {
  * @param {String=} options.ext Theme file extension `.scss` or `.sass`.
  * @param {RegExp=} options.placeholder Regular expression to match and replace placeholder in file.
  * The first parentheses-captured matched result will be replaced with the theme name.
+ * @param {Bool=} options.createdir Split css files in relative folder
  *
  * @returns {Stream}
  */
@@ -47,7 +49,8 @@ module.exports = function(themes, options)
         let themedFile = file.clone();
 
         themedFile.contents = Buffer.concat([themeImports[themeName], themedFile.contents]);
-        themedFile.path = path.join(dirname, filename.replace(filename.match(settings.placeholder)[1], themeName));
+        let themedFolder = (settings.createdir)?themeName:'';
+        themedFile.path = path.join(dirname, themedFolder, filename.replace(filename.match(settings.placeholder)[1], themeName));
 
         files.push(themedFile);
       });
