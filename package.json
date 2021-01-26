@@ -9,7 +9,7 @@
     "globby": "^6.0.0"
   },
   "peerDependencies": {
-    "gulp": "3.x",
+    "gulp": ">=3.x",
     "gulp-sass": ">=2.x"
   },
   "engines": {
